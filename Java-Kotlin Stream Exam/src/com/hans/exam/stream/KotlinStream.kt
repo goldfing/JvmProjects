@@ -31,8 +31,34 @@ object KotlinStream {
     }
 
     fun filterExam() {
-
+        val numbers = listOf<Int>(1, 2, 3, 4, 5)
+        numbers.filter { n -> n % 2 == 1 }.forEach { println(it) }
     }
+
+    fun takeExam() {
+        val numbers = listOf<Int>(1, 2, 3, 4, 5)
+        numbers.take(3).forEach { println(it) }
+        println("=========================")
+        numbers.takeLast(1).forEach { println(it) }
+    }
+
+    fun takeWhileExam() {
+        val numbers = listOf<Int>(1, 2, 3, 4, 5)
+        println(numbers.takeWhile { it < 3 }) // 작은 것.
+        println("=========================")
+        println(numbers.takeLastWhile { it > 3 }) // 큰 것
+    }
+
+    fun dropExam() {
+        val numbers = listOf<Int>(1, 2, 3, 4, 5)
+        numbers.drop(2).forEach { println(it) }
+        println("3=========================")
+        numbers.dropWhile { it < 3 }.forEach { println(it) }
+        println("4=========================")
+        numbers.dropLastWhile { it < 3 }.forEach { println(it) }
+    }
+
+
 }
 
 fun main(args: Array<String>) {
@@ -46,9 +72,13 @@ fun main(args: Array<String>) {
     println("\n=========================")
     KotlinStream.groupByExam()
     println("=========================")
+    KotlinStream.filterExam()
     println("=========================")
+    KotlinStream.takeExam()
     println("=========================")
+    KotlinStream.takeWhileExam()
     println("=========================")
+    KotlinStream.dropExam()
     println("=========================")
     println("=========================")
 
