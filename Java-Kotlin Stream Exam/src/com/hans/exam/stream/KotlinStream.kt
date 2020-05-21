@@ -52,13 +52,60 @@ object KotlinStream {
     fun dropExam() {
         val numbers = listOf<Int>(1, 2, 3, 4, 5)
         numbers.drop(2).forEach { println(it) }
-        println("3=========================")
+        println("=========================")
         numbers.dropWhile { it < 3 }.forEach { println(it) }
-        println("4=========================")
+        println("=========================")
         numbers.dropLastWhile { it < 3 }.forEach { println(it) }
     }
 
+    fun firstAndLastExam() {
+        val numbers = listOf(100, 1, 200, 300, 2, 400, 500)
+        println("first: " + numbers.first())
+        println("last: " + numbers.last())
+    }
 
+    fun distinctExam() {
+        val numbers = listOf(100, 1, 200, 100, 2, 400, 500)
+        numbers.distinct().forEach {
+            print(it)
+            print(", ")
+        }
+        println()
+    }
+
+    fun zipExam() {
+        val roles = listOf<String>("아빠", "엄마", "첫째", "둘째")
+        val priorities = listOf<Int>(4, 1, 2, 3)
+
+        roles.zip(priorities) { role, priority -> role +" => "+ priority }
+                .forEach { println(it) }
+    }
+
+    fun joinToStringExam() {
+        val roles = listOf<String>("아빠", "엄마", "첫째", "둘째")
+        println("joinToString: " + roles.joinToString())
+    }
+
+    fun countExam() {
+        val roles = listOf<String>("아빠빠빠", "엄마", "첫째", "둘째")
+        println("count: " + roles.count())
+        println("filtered count: " + roles.count { role -> role.length > 2 })
+    }
+
+    fun anyAndNoneExam() {
+        val roles = listOf<String>("아빠빠빠빠", "엄마", "첫째", "둘째")
+        println("any: " + roles.any())
+        println("filtered any: " + roles.any { role -> role.length > 2 })
+        println("none: " + roles.none())
+        println("filtered none: " + roles.none{ role -> role.length < 2})
+    }
+
+    fun maxAndMinAndAverageExam() {
+        val numbers = listOf(100, 1, 200, 300, 2, 400, 500)
+        println("max: " + numbers.max())
+        println("min: " + numbers.min())
+        println("average: " + numbers.average())
+    }
 }
 
 fun main(args: Array<String>) {
@@ -80,6 +127,19 @@ fun main(args: Array<String>) {
     println("=========================")
     KotlinStream.dropExam()
     println("=========================")
+    KotlinStream.firstAndLastExam()
+    println("=========================")
+    KotlinStream.distinctExam()
+    println("=========================")
+    KotlinStream.zipExam()
+    println("=========================")
+    KotlinStream.joinToStringExam()
+    println("=========================")
+    KotlinStream.countExam()
+    println("=========================")
+    KotlinStream.anyAndNoneExam()
+    println("=========================")
+    KotlinStream.maxAndMinAndAverageExam()
     println("=========================")
 
 
